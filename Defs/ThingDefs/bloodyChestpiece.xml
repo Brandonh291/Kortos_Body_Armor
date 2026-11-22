@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<RecipeDef>
+		<defName>MakeBoneArmor</defName>
+		<label>Bone Plate Armor</label>
+		<description>Overlapping solid plates of armor covering the entire body from neck to feet, then doused in blood for good measure. However, it is much weaker than other materials. While cheaper and lighter than normal plate, it is far more fragile and quickly breaks. The blood of the armor improves injury recover.</description>
+		<jobString>Creating Armor from Bodies.</jobString>
+		<workAmount>12000</workAmount>
+		<effectWorking>Cremate</effectWorking>
+		<soundWorking>Recipe_Smith</soundWorking>
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+		<autoStripCorpses>true</autoStripCorpses>
+		<workSkill>Crafting</workSkill>
+		<workSkillLearnFactor>1.0</workSkillLearnFactor>
+		<skillRequirements>
+			<Crafting>6</Crafting>
+		</skillRequirements>
+		
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>CorpsesHumanlike</li>
+					</categories>
+				</filter>
+				<count>2</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+					<li>Steel</li>
+				</thingDefs>
+				</filter>
+				<count>60</count>
+			</li>
+		</ingredients>
+		
+		<fixedIngredientFilter>
+			<categories>
+				<li>Corpses</li>
+			</categories>
+			<thingDefs>
+				<li>Steel</li>
+			</thingDefs>
+			<disallowedCategories>
+				<li>CorpsesMechanoid</li>
+			</disallowedCategories>
+			<disallowedThingDefs>
+				<li>Corpse_Chicken</li>
+				<li>Corpse_Hare</li>
+				<li>Corpse_Snowhare</li>
+				<li>Corpse_Squirrel</li>
+				<li>Corpse_Rat</li>
+				<li>Corpse_Iguana</li>
+			</disallowedThingDefs>
+		</fixedIngredientFilter>
+		
+		<defaultIngredientFilter>
+			<categories>
+				<li>CorpsesHumanlike</li>
+			</categories>
+			<thingDefs>
+				<li>Steel</li>
+			</thingDefs>
+			<specialFiltersToAllow>
+				<li>AllowCorpsesColonist</li>
+				<li>AllowCorpsesStranger</li>
+			</specialFiltersToAllow>
+		</defaultIngredientFilter>
+		
+		<products>
+			<Apparel_BloodPlateArmor>1</Apparel_BloodPlateArmor>
+		</products>
+		<recipeUsers>
+			<li>ElectricSmithy</li>
+			<li>FueledSmithy</li>
+		</recipeUsers>
+		<researchPrerequisite>PlateArmor</researchPrerequisite>
+	</RecipeDef>
+	
+	<ThingDef ParentName="ApparelBase">
+		<defName>Apparel_BloodPlateArmor</defName>
+		<label>Blood Plate Armor</label>
+		<description>Overlapping solid plates of armor covering the entire body from neck to feet, then doused in blood for good measure. However, it is much weaker than other materials. While cheaper and lighter than normal plate, it is far more fragile and quickly breaks. The blood of the armor improves injury recover.</description>
+		<recipeMaker IsNull="True" />
+		<costList IsNull="True" />
+		<possessionCount>1</possessionCount>
+		
+		<graphicData>
+			<texPath>Things/Pawn/Humanlike/Apparel/PlateArmor/PlateArmor</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<smeltable>true</smeltable>
+		<smeltProducts>
+			<Steel>15</Steel>
+		</smeltProducts>
+		
+		
+		<statBases>
+			<WorkToMake>12000</WorkToMake>
+			<MaxHitPoints>200</MaxHitPoints>
+			<Mass>10</Mass>
+			<DeteriorationRate>5</DeteriorationRate>
+			<!--
+			<StuffEffectMultiplierArmor>0.6</StuffEffectMultiplierArmor>
+			<StuffEffectMultiplierInsulation_Cold>0.75</StuffEffectMultiplierInsulation_Cold>
+			<StuffEffectMultiplierInsulation_Heat>0.75</StuffEffectMultiplierInsulation_Heat>
+			-->
+			
+			<ArmorRating_Sharp>0.70</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.6</ArmorRating_Blunt>
+			<ArmorRating_Heat>0.5</ArmorRating_Heat>
+			<Insulation_Cold>5</Insulation_Cold>
+			<Insulation_Heat>1</Insulation_Heat>
+			<!--
+			
+			-->
+			<EquipDelay>10</EquipDelay>
+		</statBases>
+		<thingSetMakerTags>
+			<li>RewardStandardQualitySuper</li>
+		</thingSetMakerTags>
+		<equippedStatOffsets>
+			<MoveSpeed>-0.5</MoveSpeed>
+			<InjuryHealingFactor>.1</InjuryHealingFactor>
+			<ImmunityGainSpeed>.1</ImmunityGainSpeed>
+			<EatingSpeed>.1</EatingSpeed>
+			<!--
+			<WorkSpeedGlobal>10.0</WorkSpeedGlobal>
+			<GlobalLearningFactor>2.0</GlobalLearningFactor>
+			<MentalBreakThreshold>2.0</MentalBreakThreshold>
+			
+			<ComfyTemperatureMin>5.0</ComfyTemperatureMin>
+			<ComfyTemperatureMax>5.0</ComfyTemperatureMax>
+			<Comfort>5.0</Comfort>
+			<MeleeHitChance>10.0</MeleeHitChance>
+			<MiningSpeed>100</MiningSpeed>
+			<ResearchSpeed>100</ResearchSpeed>
+			<ConstructionSpeed>100</ConstructionSpeed>
+			<TradePriceImprovement>100</TradePriceImprovement>
+			<PlantWorkSpeed>100</PlantWorkSpeed>
+			<SmoothingSpeed>100</SmoothingSpeed>
+			<FoodPoisonChance>0.01</FoodPoisonChance>
+			<CarryingCapacity>100</CarryingCapacity>
+			<TameAnimalChance>100</TameAnimalChance>
+			<TrainAnimalChance>100</TrainAnimalChance>
+			<AimingDelayFactor>0.01</AimingDelayFactor>
+			<SharpDamageMultiplier>10</SharpDamageMultiplier>
+			<BluntDamageMultiplier>10</BluntDamageMultiplier>
+			<RangedWeapon_Cooldown>0.01</RangedWeapon_Cooldown>
+			<AccuracyTouch>10</AccuracyTouch>
+			<AccuracyShort>10</AccuracyShort>
+			<AccuracyMedium>10</AccuracyMedium>
+			<AccuracyLong>10</AccuracyLong>
+			<ArmorRating_Blunt>2</ArmorRating_Blunt>
+			<ArmorRating_Sharp>2</ArmorRating_Sharp>
+			<ArmorRating_Heat>2</ArmorRating_Heat>
+			
+			<SurgerySuccessChanceFactor>100</SurgerySuccessChanceFactor>
+			-->
+			
+			
+		</equippedStatOffsets>
+		<thingCategories>
+			<li>ApparelArmor</li>
+		</thingCategories>
+		<tradeTags>
+			<li>Clothing</li>
+			<li>Armor</li>
+		</tradeTags>
+		<apparel>
+			<bodyPartGroups>
+				<li>Torso</li>
+				<li>Neck</li>
+				<li>Shoulders</li>
+				<li>Arms</li>
+				<li>Legs</li>
+			</bodyPartGroups>
+			<wornGraphicPath>Things/Pawn/Humanlike/Apparel/PlateArmor/PlateArmor</wornGraphicPath>
+			<layers>
+				<li>Middle</li>
+				<li>Shell</li>
+			</layers>
+			<tags>
+				<li>MedievalMilitary</li>
+			</tags>
+			<defaultOutfitTags>
+				<li>Soldier</li>
+			</defaultOutfitTags>
+		</apparel>
+		<colorGenerator Class="ColorGenerator_Options">
+			<options>
+				<li>
+					<weight>10</weight>
+					<only>(1,0.1,0.1)</only>
+				</li>
+			</options>
+		</colorGenerator>
+		
+	</ThingDef>
+</Defs>
